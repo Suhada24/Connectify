@@ -1,0 +1,27 @@
+{
+  "name": "connectify",
+  "version": "1.0.0",
+  "description": "A social media web application",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "server": "nodemon server/index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install-server": "cd server && npm install",
+    "install-client": "cd client && npm install",
+    "install-all": "npm install && npm run install-server && npm run install-client",
+    "build": "cd client && npm run build",
+    "vercel-build": "npm run install-all && npm run build",
+    "heroku-postbuild": "npm run install-client && npm run build"
+  },
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "engines": {
+    "node": ">=16.x"
+  }
+}
